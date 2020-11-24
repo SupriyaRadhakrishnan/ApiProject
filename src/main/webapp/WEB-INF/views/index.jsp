@@ -13,7 +13,13 @@
 	
 	
 		<h2>${movie.original_title }</h2>
-	
-	
+<form method="post" action="/index">
+	Rating: <input type="text" name="rating"/>
+    Length: <input type="text" name="Length"/>
+    Genre: <input type="text" name="Genre"/>
+
+   <input type="submit">
+</form>
+
 </body>
 </html>
