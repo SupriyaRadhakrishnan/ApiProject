@@ -11,9 +11,10 @@
 <body>
 	<h1>Index Page</h1>
 	
-	
-		<h2>${movie.original_title }</h2>
-	
+		
+	<c:forEach var="movie" items="${movielist }">
+		${movie.title}<br />
+	</c:forEach>
 	
 </body>
 </html>

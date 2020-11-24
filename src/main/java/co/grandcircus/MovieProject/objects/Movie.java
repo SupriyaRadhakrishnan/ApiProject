@@ -13,7 +13,7 @@ public class Movie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String original_title;
+	private String title;
 	private String overview;
 	private double vote_average;
 	private Genre[] genres;
@@ -25,11 +25,11 @@ public class Movie {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getOriginal_title() {
-		return original_title;
+	public String getTitle() {
+		return title;
 	}
-	public void setOriginal_title(String original_title) {
-		this.original_title = original_title;
+	public void setTitle(String original_title) {
+		this.title = original_title;
 	}
 	public String getOverview() {
 		return overview;
@@ -61,11 +61,11 @@ public class Movie {
 	public void setRuntime(int runtime) {
 		this.runtime = runtime;
 	}
-	public Movie(long id, String original_title, String overview, double vote_average, Genre[] genres,
+	public Movie(long id, String title, String overview, double vote_average, Genre[] genres,
 			String release_date, int runtime) {
 		super();
 		this.id = id;
-		this.original_title = original_title;
+		this.title = title;
 		this.overview = overview;
 		this.vote_average = vote_average;
 		this.genres = genres;

@@ -19,7 +19,10 @@ public class MovieController {
 	private String index (Model model) {
 		Movie movie = movieapi.getMovie();
 		model.addAttribute("movie", movie);
-		System.out.println(movie.getOriginal_title());
+		System.out.println(movie.getTitle());
+		
+		MovieResponse movieList = movieapi.getMovieList();
+		model.addAttribute("movielist", movieList.getResults());
 		
 		return "index";
 	}

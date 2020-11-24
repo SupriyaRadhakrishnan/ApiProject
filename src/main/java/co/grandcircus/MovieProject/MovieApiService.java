@@ -17,6 +17,10 @@ public class MovieApiService {
 	return restTemplate.getForObject(url, Movie.class);
 	}
 	
-	
+	public MovieResponse getMovieList() {
+		RestTemplate restTemplate = new RestTemplate();
+		String url = "https://api.themoviedb.org/3/discover/movie?api_key=d64119a86692d8a4660991801e7bbf75&language=en-US&page=2";
+		return restTemplate.getForObject(url, MovieResponse.class);
+	}
 	
 }
