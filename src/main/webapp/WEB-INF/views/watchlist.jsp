@@ -23,10 +23,7 @@
 <tbody>
 <c:forEach var="movie" items="${ movielist}">
 <tr>
-<td><a href="/details/${movie.getId()}">${movie.getTitle() }</a></td>
-<td><a href="/addtowatchlist/${movie.getId()}">
-    <input type="button" value="Add to WatchList" />
-</a></td>
+<td><a href="/details/${movie.getMovieid()}">${movie.getTitle() }</a></td>
 </tr>
 </c:forEach>
 </tbody>

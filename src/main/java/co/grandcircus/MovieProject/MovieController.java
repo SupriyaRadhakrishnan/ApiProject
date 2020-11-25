@@ -57,13 +57,23 @@ public class MovieController {
 	{
 		Movie movie = movieapi.getMovie(id);
 		System.out.println("movie inside addwatchlist");
+		System.out.println(movie.getGenres());
+		Genre[] genre = movie.getGenres();
+		String genval ="";
+		for(Genre g:genre)
+		{
+			genval +=g.getName() + ",";
+					
+		}		
+		movie.setMovieid(((Long)id).intValue());
+		movie.setGenre(genval);
+		System.out.println(movie.getMovieid());
 	    mrep.save(movie);
 		return "redirect:/watchlist";
 	}
 	@GetMapping("/watchlist")
 	public String watchlist(Model model)
 	{
-   
 		List<Movie> movielist = mrep.findAll();
 		model.addAttribute("movielist",movielist);
 		return "watchlist";
