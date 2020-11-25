@@ -11,6 +11,8 @@
 <body>
 	<h1>Search Criteria : </h1>
 	<a href="/watchlist" >WatchList</a>
+	<br /><br /><br />
+	
 <form method="post" action="/search">
 	Rating: <input type="number" name="rating" value=0 required/><br />
     Length: <input type="number" name="length" value=0 required/><br />

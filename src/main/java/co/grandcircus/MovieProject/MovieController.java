@@ -78,6 +78,20 @@ public class MovieController {
 		model.addAttribute("movielist",movielist);
 		return "watchlist";
 	}
+	@GetMapping("/watchistdetails/{id}")
+	public String watchistdetails(@PathVariable("id") long id,Model model)
+	{
+		Movie movie = movieapi.getMovie(id);
+		System.out.println(movie.getTitle());
+		model.addAttribute("movie",movie);
+		return "watchistdetails";
+	}
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable("id") long id,Model model)
+	{	
+		mrep.deleteById(id);
+		return "redirect:/watchlist";
+	}
 	
 	
 }

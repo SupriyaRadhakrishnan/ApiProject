@@ -1,22 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Movie Details</title>
-<style>
-	div {
-  max-width: 800px;
-  min-width: 100px;
-}
-</style>
+<title>Insert title here</title>
 </head>
 <body>
-<a href="/">HomePage</a><br /><br /><br />
 <h1>Details</h1>
-<table rules="all" border= "1px solid black">
+<table>
 <thead>
 <tr>
 <th>Title</th>
@@ -24,23 +20,23 @@
 <th>Released</th>
 <th>Genre</th>
 <th>Run-time</th>
-<th>Watch Later?</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>${ movie.title }</td>
-<td>${movie.vote_average } /10</td>
+<td>${movie.vote_average }</td>
 <td>${ movie.release_date }</td>
 <td><c:forEach var="genre" items="${movie.genres }">${genre.getName() }, </c:forEach></td>
 <td>${ movie.runtime } mins</td>
-<td><a href="/addtowatchlist/${movie.getId()}">
-    <input type="button" value="Add to WatchList" />
-</a></td>
 </tr>
 </tbody>
 </table>
 <h4>Summary:</h4><br />
-<div>${movie.overview }</div>
+<div>${movie.overview }</div><br /><br />
+<a href="/watchlist">
+    <input type="button" value="Back" />
+</a>
 </body>
 </html>
