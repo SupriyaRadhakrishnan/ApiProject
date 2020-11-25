@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="/">HomePage</a><br /><br /><br />
 <h1>Display</h1>
 <c:choose>
 <c:when test="${fn:length(movielist) >0}">

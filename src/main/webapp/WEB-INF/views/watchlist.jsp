@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="/">HomePage</a><br /><br /><br />
 <h1>WatchList</h1>
 <c:choose>
 <c:when test="${fn:length(movielist) >0}">
@@ -23,7 +24,10 @@
 <tbody>
 <c:forEach var="movie" items="${ movielist}">
 <tr>
-<td><a href="/details/${movie.getMovieid()}">${movie.getTitle() }</a></td>
+<td><a href="/watchistdetails/${movie.getMovieid()}">${movie.getTitle() }</a></td>
+<td><a href="/delete/${movie.getId()}">
+    <input type="button" value="Remove" />
+</a></td>
 </tr>
 </c:forEach>
 </tbody>
