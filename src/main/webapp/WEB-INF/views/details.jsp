@@ -5,9 +5,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Movie Details</title>
 <style>
-	th{text-align: left;}
 	div {
   max-width: 800px;
   min-width: 100px;
@@ -16,7 +15,7 @@
 </head>
 <body>
 <h1>Details</h1>
-<table>
+<table rules="all" border= "1px solid black">
 <thead>
 <tr>
 <th>Title</th>
@@ -24,13 +23,13 @@
 <th>Released</th>
 <th>Genre</th>
 <th>Run-time</th>
-<th></th>
+<th>Watch Later?</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>${ movie.title }</td>
-<td>${movie.vote_average }</td>
+<td>${movie.vote_average } /10</td>
 <td>${ movie.release_date }</td>
 <td><c:forEach var="genre" items="${movie.genres }">${genre.getName() }, </c:forEach></td>
 <td>${ movie.runtime } mins</td>
