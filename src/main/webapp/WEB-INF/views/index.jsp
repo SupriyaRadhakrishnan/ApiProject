@@ -9,19 +9,19 @@
 <title>Index</title>
 </head>
 <body>
-	<h1>Index Page</h1>
-	
+	<h1>Search Criteria : </h1>
+	<a href="/watchlist" >WatchList</a>
+<form method="post" action="/search">
+	Rating: <input type="number" name="rating" value=0 required/><br />
+    Length: <input type="number" name="length" value=0 required/><br />
+    Genre
+      <select id="genre" name="genre">
+       <option value=""></option>
+      <c:forEach var="gen" items="${genre}">
+    <option value="${gen.id}">${gen.name}</option>
+</c:forEach>
 
-	<c:forEach var="movie" items="${movielist }">
-		${movie.title}<br />
-	</c:forEach>
-	
-		<h2>${movie.original_title }</h2>
-<form method="post" action="/index">
-	Rating: <input type="text" name="rating"/>
-    Length: <input type="text" name="Length"/>
-    Genre: <input type="text" name="Genre"/>
-
+ </select>
    <input type="submit">
 </form>
 

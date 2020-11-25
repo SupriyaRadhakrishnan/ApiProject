@@ -6,5 +6,7 @@ import co.grandcircus.MovieProject.objects.Genre;
 
 
 public interface GenreRepository extends JpaRepository<Genre, Long>{
+	
+	Genre findByName(String name);
 
 }
