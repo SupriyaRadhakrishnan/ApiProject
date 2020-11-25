@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 
 @Entity
@@ -15,10 +18,13 @@ public class Movie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	private int movieid;
 	private String title;
 	private String overview;
 	private double vote_average;
+	@Transient
 	private Genre[] genres;
+	private String genre;
 	private String release_date;
 	private int runtime;
 	public long getId() {
@@ -63,22 +69,37 @@ public class Movie {
 	{
 		
 	}
-	public Movie(long id, String title, String overview, double vote_average, Genre[] genres,
+
+	public Movie(long id, int movieid, String title, String overview, double vote_average, Genre[] genres, String genre,
 			String release_date, int runtime) {
 		super();
 		this.id = id;
+		this.movieid = movieid;
 		this.title = title;
 		this.overview = overview;
 		this.vote_average = vote_average;
 		this.genres = genres;
+		this.genre = genre;
 		this.release_date = release_date;
 		this.runtime = runtime;
 	}
 	public Genre[] getGenres() {
 		return genres;
-	}
+	}	
 	public void setGenres(Genre[] genres) {
 		this.genres = genres;
+	}
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	public int getMovieid() {
+		return movieid;
+	}
+	public void setMovieid(int movieid) {
+		this.movieid = movieid;
 	}
 	
 }

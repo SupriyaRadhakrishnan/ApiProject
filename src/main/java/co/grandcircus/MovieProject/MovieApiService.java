@@ -28,4 +28,5 @@ public class MovieApiService {
 		return restTemplate.getForObject(url, MovieResponse.class,rating,length,genre);
 	}
 	
+
 }
