@@ -25,7 +25,7 @@
       </li>
     </ul>
     <form method="post" action="/searchbymoviename" class="form-inline my-2 my-lg-0">
-      <input name="moviename" class="form-control mr-sm-2" type="text" placeholder="Search">
+      <input name="moviename" class="form-control mr-sm-2" type="text" placeholder="Search by movie name">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
@@ -33,20 +33,22 @@
 
 	<h1>Search Criteria : </h1>
 	<br />
-	
+
 <form method="post" action="/search">
-	<label for="rating">Rating: </label> <input id="rating" type="number" name="rating" value=0 required/><br />
-    <label for="length">Length: </label> <input id="length" type="number" name="length" value=0 required/><br />
-    <label for="genre">Genre </label>
+<table>
+<tbody>
+	<tr> <td> <label for="rating">Rating: </label></td> <td><input id="rating" type="number" name="rating" value=0 required/></td></tr>
+    <tr> <td><label for="length">Length: </label></td> <td> <input id="length" type="number" name="length" value=0 required/></td></tr>
+   <tr><td> <label for="genre">Genre: </label> </td> <td>
       <select id="genre" name="genre">
        <option value=""></option>
       <c:forEach var="gen" items="${genre}">
     <option value="${gen.id}">${gen.name}</option>
 </c:forEach>
-
- </select>
- <br />
-   <input value="Search" type="submit">
+ </select></td></tr>
+   <tr><td></td><td><input value="Search" type="submit"></td></tr>
+   </tbody>
+</table>
 </form>
 
 
