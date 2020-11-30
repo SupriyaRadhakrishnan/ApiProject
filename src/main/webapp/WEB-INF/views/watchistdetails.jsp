@@ -9,12 +9,29 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+	th{text-align: left;
+	border: 1px solid;}
+	td{text-align: left;
+	border: 1px solid;}
+	div {
+  max-width: 800px;
+  min-width: 100px;
+}
+img {
+  border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
+}
+</style>
 </head>
 <body>
 <h1>Details</h1>
 <table>
 <thead>
 <tr>
+<th>Poster</th>
 <th>Title</th>
 <th>Rating</th>
 <th>Released</th>
@@ -25,6 +42,7 @@
 </thead>
 <tbody>
 <tr>
+<td><img src="https://image.tmdb.org/t/p/w500/${ movie.poster_path} "></td>
 <td>${ movie.title }</td>
 <td>${movie.vote_average }</td>
 <td>${ movie.release_date }</td>

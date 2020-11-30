@@ -25,6 +25,8 @@ public class Movie {
 	@Transient
 	private Genre[] genres;
 	private String genre;
+	@Transient
+	private String poster_path;
 	private String release_date;
 	private int runtime;
 	public long getId() {
@@ -100,6 +102,12 @@ public class Movie {
 	}
 	public void setMovieid(int movieid) {
 		this.movieid = movieid;
+	}
+	public String getPoster_path() {
+		return poster_path;
+	}
+	public void setPoster_path(String poster_path) {
+		this.poster_path = poster_path;
 	}
 	
 }
