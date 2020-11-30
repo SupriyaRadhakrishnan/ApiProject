@@ -33,7 +33,7 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/watchlist">Watchlist</a>
+        <a class="nav-link" href="/watchlist">My Watchlist</a>
       </li>
     </ul>
     <form method="post" action="/searchbymoviename" class="form-inline my-2 my-lg-0">

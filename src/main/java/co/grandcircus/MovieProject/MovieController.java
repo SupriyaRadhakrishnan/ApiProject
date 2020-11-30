@@ -31,6 +31,8 @@ public class MovieController {
 		List<Genre> genre = grep.findAll();
 		System.out.println("I am here "+  genre);
 		model.addAttribute("genre",genre);
+		MovieResponse movieList = movieapi.getTopMoviesList();
+		model.addAttribute("movielist", movieList.getResults());
 		return "index";
 	}
 	
