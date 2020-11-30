@@ -16,7 +16,7 @@
   max-width: 800px;
   min-width: 100px;
 }
-img {
+#poster {
   border: 1px solid #ddd; /* Gray border */
   border-radius: 4px;  /* Rounded border */
   padding: 5px; /* Some padding */
@@ -61,7 +61,7 @@ img {
 </thead>
 <tbody>
 <tr>
-<td><img src="https://image.tmdb.org/t/p/w500/${ movie.poster_path} "></td>
+<td><img id="poster" src="https://image.tmdb.org/t/p/w500/${ movie.poster_path} "></td>
 <td>${ movie.title }</td>
 <td>${movie.vote_average }</td>
 <td>${ movie.release_date }</td>
