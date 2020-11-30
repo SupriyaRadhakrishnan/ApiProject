@@ -93,5 +93,14 @@ public class MovieController {
 		return "redirect:/watchlist";
 	}
 	
+	@PostMapping("/searchbymoviename")
+	public String searchbymoviename (@RequestParam String moviename, Model model) {
+		
+		MovieResponse movieList = movieapi.getMovieListByName(moviename);
+		System.out.println("INSIDE SEARCH " + movieList);
+		model.addAttribute("movielist", movieList.getResults());
+		return  "display";
+	}
+	
 	
 }
