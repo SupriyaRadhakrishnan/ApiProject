@@ -103,6 +103,5 @@ public class MovieController {
 		model.addAttribute("movielist", movieList.getResults());
 		return  "display";
 	}
-	
-	
-}
+
+	}

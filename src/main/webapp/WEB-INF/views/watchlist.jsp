@@ -6,14 +6,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="/css/styles.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/spacelab/bootstrap.min.css" integrity="sha384-F1AY0h4TrtJ8OCUQYOzhcFzUTxSOxuaaJ4BeagvyQL8N9mE4hrXjdDsNx249NpEc" crossorigin="anonymous">
 <meta charset="ISO-8859-1">
 <title>Watchlist</title>
 </head>
 <body>
-
 <img src="https://drive.google.com/uc?id=1rRPPhEy0mEZq1ttXDxiTv6xuJt2IfjXE"/>
-<h1>Your WatchList</h1>
+
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="/">Home</a>
@@ -33,22 +33,20 @@
     </form>
   </div>
 </nav>
-
 <br />
-
 <c:choose>
 <c:when test="${fn:length(movielist) >0}">
 <table>
 <thead>
 <tr>
-<th>Movie Title</th>
+<th></th>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <c:forEach var="movie" items="${ movielist}">
 <tr>
-<td><a href="/watchlistdetails/${movie.getMovieid()}">${movie.getTitle() }</a></td>
+<td><a id="makeitblack" href="/watchlistdetails/${movie.getMovieid()}">${movie.getTitle() }</a></td>
 <td><a href="/delete/${movie.getId()}">
     <input type="button" value="Remove" />
 </a></td>

@@ -1,0 +1,28 @@
+body
+{
+    background-image: url(/images/background.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: black;
+}
+
+td
+{
+	color:black;
+}
+
+tr
+{
+	color:black;
+}
+
+#makeitblack
+{
+	color:black;
+	font-weight : bold;
+}
+
+div
+{
+	color:black;
+}

@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="/css/styles.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/spacelab/bootstrap.min.css" integrity="sha384-F1AY0h4TrtJ8OCUQYOzhcFzUTxSOxuaaJ4BeagvyQL8N9mE4hrXjdDsNx249NpEc" crossorigin="anonymous">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
