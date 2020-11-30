@@ -11,10 +11,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style>
-	th{text-align: left;
-	border: 1px solid;}
-	td{text-align: left;
-	border: 1px solid;}
+
 	div {
   max-width: 800px;
   min-width: 100px;
@@ -50,15 +47,15 @@ img {
   </div>
 </nav>
 
-<table>
+<table class="table table-hover">
 <thead>
 <tr>
-<th>Poster</th>
-<th>Title</th>
-<th>Rating</th>
-<th>Released</th>
-<th>Genre</th>
-<th>Run-time</th>
+<th scope="col" class="table-active">Poster</th>
+<th scope="col" class="table-active">Title</th>
+<th scope="col" class="table-active">Rating</th>
+<th scope="col" class="table-active">Released</th>
+<th scope="col" class="table-active">Genre</th>
+<th scope="col" class="table-active">Run-time</th>
 <th></th>
 </tr>
 </thead>

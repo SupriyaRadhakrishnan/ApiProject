@@ -46,27 +46,27 @@
 
 <br />
 
-<table rules="all" border=1px solid>
+<table class="table table-hover">
 <thead>
 <tr>
-<th>Poster</th>
-<th>Title</th>
-<th>Rating</th>
-<th>Released</th>
-<th>Genre</th>
-<th>Run-time</th>
-<th>Watch Later?</th>
+<th scope="col" class="table-active">Poster</th>
+<th scope="col" class="table-active">Title</th>
+<th scope="col" class="table-active">Rating</th>
+<th scope="col" class="table-active">Released</th>
+<th scope="col" class="table-active">Genre</th>
+<th scope="col" class="table-active">Run-time</th>
+<th scope="col" class="table-active">Watch Later?</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><img id="poster" src="https://image.tmdb.org/t/p/w500/${ movie.poster_path} "></td>
-<td>${ movie.title }</td>
-<td>${movie.vote_average } /10</td>
-<td>${ movie.release_date }</td>
-<td><c:forEach var="genre" items="${movie.genres }">${genre.getName() }, </c:forEach></td>
-<td>${ movie.runtime } mins</td>
-<td><a href="/addtowatchlist/${movie.getId()}">
+<td ><img id="poster" src="https://image.tmdb.org/t/p/w500/${ movie.poster_path} "></td>
+<td >${ movie.title }</td>
+<td >${movie.vote_average } /10</td>
+<td >${ movie.release_date }</td>
+<td ><c:forEach var="genre" items="${movie.genres }">${genre.getName() }, </c:forEach></td>
+<td >${ movie.runtime } mins</td>
+<td ><a href="/addtowatchlist/${movie.getId()}">
     <input type="button" value="Add to WatchList" />
 </a></td>
 </tr>
