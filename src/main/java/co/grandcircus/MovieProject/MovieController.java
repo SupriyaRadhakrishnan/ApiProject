@@ -80,13 +80,13 @@ public class MovieController {
 		model.addAttribute("movielist",movielist);
 		return "watchlist";
 	}
-	@GetMapping("/watchistdetails/{id}")
-	public String watchistdetails(@PathVariable("id") long id,Model model)
+	@GetMapping("/watchlistdetails/{id}")
+	public String watchlistdetails(@PathVariable("id") long id,Model model)
 	{
 		Movie movie = movieapi.getMovie(id);
 		System.out.println(movie.getTitle());
 		model.addAttribute("movie",movie);
-		return "watchistdetails";
+		return "watchlistdetails";
 	}
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable("id") long id,Model model)

@@ -48,7 +48,7 @@
 <tbody>
 <c:forEach var="movie" items="${ movielist}">
 <tr>
-<td><a href="/watchistdetails/${movie.getMovieid()}">${movie.getTitle() }</a></td>
+<td><a href="/watchlistdetails/${movie.getMovieid()}">${movie.getTitle() }</a></td>
 <td><a href="/delete/${movie.getId()}">
     <input type="button" value="Remove" />
 </a></td>
