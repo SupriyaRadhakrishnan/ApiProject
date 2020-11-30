@@ -5,12 +5,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Movie Details</title>
 <style>
-	th{text-align: left;
-	border: 1px solid;}
-	td{text-align: left;
-	border: 1px solid;}
 	div {
   max-width: 800px;
   min-width: 100px;
@@ -35,14 +31,14 @@ img {
 <th>Released</th>
 <th>Genre</th>
 <th>Run-time</th>
-<th></th>
+<th>Watch Later?</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><img src="https://image.tmdb.org/t/p/w500/${ movie.poster_path} "></td>
 <td>${ movie.title }</td>
-<td>${movie.vote_average }</td>
+<td>${movie.vote_average } /10</td>
 <td>${ movie.release_date }</td>
 <td><c:forEach var="genre" items="${movie.genres }">${genre.getName() }, </c:forEach></td>
 <td>${ movie.runtime } mins</td>
