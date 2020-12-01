@@ -21,18 +21,10 @@
 	width: 150px; /* Set a small width */
 }
 
-#poster1 {
-	border: 1px solid #ddd; /* Gray border */
-	border-radius: 4px; /* Rounded border */
-	padding: 5px; /* Some padding */
-	width: 150px; /* Set a small width */
-}
-
 #movielist {
 	max-width: 2000px;
 	min-width: 1600px;
 }
-
 </style>
 </head>
 <body>
@@ -50,8 +42,8 @@
 
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/watchlist">My Watchlist</a>
-				</li>
+				<li class="nav-item"><a class="nav-link" href="/watchlist">My
+						Watchlist</a></li>
 			</ul>
 			<form method="post" action="/searchbymoviename"
 				class="form-inline my-2 my-lg-0">
@@ -61,13 +53,9 @@
 			</form>
 		</div>
 	</nav>
-
-
 	<br />
-
 	<c:choose>
 		<c:when test="${fn:length(movielist) >0}">
-
 			<table>
 				<thead>
 					<tr>
@@ -76,33 +64,53 @@
 					</tr>
 				</thead>
 				<tbody>
-
 					<c:forEach var="movie" items="${ movielist}">
 						<tr>
 							<c:choose>
 								<c:when test="${not empty movie.poster_path}">
-									<td><img id="poster"
-										src="https://image.tmdb.org/t/p/w500/${ movie.poster_path}"></td>
-										<td> <a id="moviename" href="/details/${movie.getId()}">${movie.getTitle() }</a><br />Rating: ${movie.getVote_average() }/10 </td>
+									<td word-wrap="break-word" width="100px"><img id="poster"
+										src="https://image.tmdb.org/t/p/w500/${ movie.poster_path}">
+										</td>
+									<td><a id="moviename" href="/details/${movie.getId()}">${movie.getTitle() }</a><br />Rating:
+										${movie.getVote_average() }/10</td>
 								</c:when>
 								<c:otherwise>
-									<td><img id="poster1" src="images/No Image to Display.png"></td>
-									<td><a id="moviename" href="/details/${movie.getId()}">${movie.getTitle() } </a><br />Rating: ${movie.getVote_average() }/10</td>
+									<td word-wrap="break-word" width="100px"><img id="poster"
+										src="/images/No Image to Display.png"></td><td> <a
+										id="moviename" href="/details/${movie.getId()}">${movie.getTitle() }
+									</a><br />Rating: ${movie.getVote_average() }/10</td>
 								</c:otherwise>
 							</c:choose>
 						</tr>
 					</c:forEach>
-
 				</tbody>
 			</table>
-
 		</c:when>
 		<c:otherwise>
 No Movie to Display
 </c:otherwise>
 	</c:choose>
+	<c:set var="search" value="searchbymoviename" />
+	<c:if test="${empty byname}">
+		<c:set var="search" value="search" />
+	</c:if>
+	<c:if test="${beginindex gt 20}">
+		<a href="/${search}/${beginindex-20}/${beginindex-1}">&laquo;</a>
+	</c:if>
+
+	<c:forEach var="count" varStatus="status" begin="${beginindex}"
+		end="${beginindex +19}">
+		<c:if test="${count le totalpages}">
+			<c:choose>
+				<c:when test="${count % 20 == 0}">
+					<a href="/${search}/${beginindex}/${count}">${count}</a> &nbsp;
+  <a href="/${search}/${beginindex + 20}/${count+1}">&raquo;</a>
+				</c:when>
+				<c:otherwise>
+					<a href="/${search}/${beginindex}/${count}">${count}</a> &nbsp;
+  </c:otherwise>
+			</c:choose>
+		</c:if>
+	</c:forEach>
 </body>
-<script>
-	
-</script>
 </html>

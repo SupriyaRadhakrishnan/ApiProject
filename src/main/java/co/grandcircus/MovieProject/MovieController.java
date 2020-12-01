@@ -25,9 +25,17 @@ public class MovieController {
 	@Autowired
 	MovieRepository mrep;
 
+	private double mrating =0;
+	private int mlength =0;
+	private int mgenre;
+	private String mmoviename="";
+	
 	@GetMapping("/")
 	private String index (Model model) {
-
+		
+		mrating = 0;
+		mlength = 0;
+		mgenre = 0;
 		List<Genre> genre = grep.findAll();
 		System.out.println("I am here "+  genre);
 		model.addAttribute("genre",genre);
@@ -39,10 +47,27 @@ public class MovieController {
 	@PostMapping("/search")
 	public String search(double rating,int length,@RequestParam(required=false,defaultValue ="0")int genre,Model model)
 	{
-		
-		MovieResponse movieList = movieapi.getMovieList(rating,length,genre);
+		mrating = rating;
+		mlength = length;
+		mgenre = genre;
+		int beginindex =1;
+		MovieResponse movieList = movieapi.getMovieList(rating,length,genre,1);
 		System.out.println("INSIDE SEARCH " + movieList);
 		model.addAttribute("movielist", movieList.getResults());
+		model.addAttribute("totalpages", movieList.getTotal_pages());
+		model.addAttribute("beginindex",beginindex);
+		return  "display";
+	}
+	
+	@GetMapping("/search/{beginindex}/{count}")
+	public String search(@PathVariable("beginindex")  int beginindex,@PathVariable("count")  int count,Model model)
+	{
+		MovieResponse movieList = movieapi.getMovieList(mrating,mlength,mgenre,count);
+		System.out.println("INSIDE SEARCH " + movieList);
+		model.addAttribute("movielist", movieList.getResults());
+		model.addAttribute("totalpages", movieList.getTotal_pages());
+		model.addAttribute("beginindex",beginindex);
+		System.out.println("beginindex " + beginindex);
 		return  "display";
 	}
 	
@@ -97,11 +122,26 @@ public class MovieController {
 	
 	@PostMapping("/searchbymoviename")
 	public String searchbymoviename (@RequestParam String moviename, Model model) {
-		
-		MovieResponse movieList = movieapi.getMovieListByName(moviename);
+		mmoviename = moviename;
+		MovieResponse movieList = movieapi.getMovieListByName(moviename,1);
 		System.out.println("INSIDE SEARCH " + movieList);
+		model.addAttribute("beginindex",1);
+		model.addAttribute("totalpages", movieList.getTotal_pages());
 		model.addAttribute("movielist", movieList.getResults());
+		model.addAttribute("byname","byname");
 		return  "display";
 	}
-
+	
+	@GetMapping("/searchbymoviename/{beginindex}/{count}")
+	public String searchbymoviename1(@PathVariable("beginindex")  int beginindex,@PathVariable("count")  int count,Model model) {
+		System.out.println("Hello");
+		MovieResponse movieList = movieapi.getMovieListByName(mmoviename,count);
+		System.out.println("INSIDE SEARCH " + movieList);
+		model.addAttribute("movielist", movieList.getResults());
+		model.addAttribute("totalpages", movieList.getTotal_pages());
+		model.addAttribute("beginindex",beginindex);
+		model.addAttribute("byname","byname");
+		System.out.println("movieList " + movieList.getResults());
+		return  "display";
 	}
+}

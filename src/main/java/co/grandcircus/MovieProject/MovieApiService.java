@@ -17,22 +17,22 @@ public class MovieApiService {
 	return restTemplate.getForObject(url, Movie.class,id);
 	}
 	
-	public MovieResponse getMovieList(double rating,int length,int genre) {
+	public MovieResponse getMovieList(double rating,int length,int genre,int count) {
 		RestTemplate restTemplate = new RestTemplate();
 		
-		String url = "https://api.themoviedb.org/3/discover/movie?api_key=d64119a86692d8a4660991801e7bbf75&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_average.gte={rating}&with_runtime.gte={length}";
+		String url = "https://api.themoviedb.org/3/discover/movie?api_key=d64119a86692d8a4660991801e7bbf75&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page={count}&vote_average.gte={rating}&with_runtime.gte={length}";
 		if(genre>0)
 		{
 		url += "&with_genres={genre}";
 		}
-		return restTemplate.getForObject(url, MovieResponse.class,rating,length,genre);
+		return restTemplate.getForObject(url, MovieResponse.class,count,rating,length,genre);
 	}
 	
-	public MovieResponse getMovieListByName(String moviename) {
+	public MovieResponse getMovieListByName(String moviename,int count) {
 		RestTemplate restTemplate = new RestTemplate();
-		String url = "https://api.themoviedb.org/3/search/movie?api_key=d64119a86692d8a4660991801e7bbf75&language=en-US&query=" + moviename + "&page=1&include_adult=false";
+		String url = "https://api.themoviedb.org/3/search/movie?api_key=d64119a86692d8a4660991801e7bbf75&language=en-US&query=" + moviename + "&page={count}&include_adult=false";
 		
-		return restTemplate.getForObject(url, MovieResponse.class);
+		return restTemplate.getForObject(url, MovieResponse.class,count);
 	}
 	
 	public MovieResponse getTopMoviesList() {
@@ -44,3 +44,4 @@ public class MovieApiService {
 	}
 
 }
+
